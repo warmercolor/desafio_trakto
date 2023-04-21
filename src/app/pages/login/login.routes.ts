@@ -6,6 +6,4 @@ export const LoginRoutes: Routes = [
     path: '',
     component: LoginComponent
   }
-
-
 ]

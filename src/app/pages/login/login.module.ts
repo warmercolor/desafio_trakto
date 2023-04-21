@@ -3,19 +3,24 @@ import { CommonModule } from '@angular/common';
 import { LoginComponent } from './login.component';
 import { LoginRoutes } from './login.routes';
 import { RouterModule } from '@angular/router';
-import { InputComponent } from './../../components/input/input.component';
 import { FormsModule } from '@angular/forms';
+import { LoginService } from './../../resources/service/login.service';
+import { ReactiveFormsModule } from '@angular/forms';
+
 
 
 @NgModule({
   declarations: [
-    InputComponent,
     LoginComponent
   ],
   imports: [
     CommonModule,
     FormsModule,
+    ReactiveFormsModule,
     RouterModule.forChild(LoginRoutes)
+  ],
+  providers: [
+    LoginService,
   ]
 })
 export class LoginModule { }
