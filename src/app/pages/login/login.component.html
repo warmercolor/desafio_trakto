@@ -1,0 +1,14 @@
+<div class="container">
+  <div>
+    <div class="logo-wrapper">
+      <img src="../../../assets/images/logo_trakto.svg" alt="Logo Trakto">
+      <h2 class="title">Olá, faça login em sua conta.</h2>
+    </div>
+
+    <form class="form" (ngSubmit)="onSubmit()">
+      <app-input label="Email" name="email" inputType="email" placeholder="fulano@gmail.com"></app-input>
+      <app-input label="Senha" name="password" inputType="password" placeholder="••••••••••" ></app-input>
+      <button type="submit" class="button">Entrar</button>
+    </form>
+  </div>
+</div>
