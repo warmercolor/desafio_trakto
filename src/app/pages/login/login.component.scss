@@ -14,7 +14,7 @@
 
   .title {
     color: #04183E;
-    font-size: 24px;
+    font-size: 20px;
     font-weight: 700;
     line-height: 1.25;
     margin-bottom: 24px;
@@ -23,7 +23,6 @@
   .form {
     display: flex;
     flex-direction: column;
-    align-items: center;
     width: 100%;
     max-width: 400px;
 
@@ -34,7 +33,6 @@
       position: relative;
       width: 90%;
 
-
       .input-label {
         color: #04183E;
         font-size: 16px;
@@ -43,7 +41,6 @@
         margin-bottom: 5px;
         transition: color 0.2s ease-in-out;
       }
-
 
       .input-field {
         background-color: #FFFFFF;
@@ -56,7 +53,6 @@
         padding: 16px;
         transition: color 0.2s ease-in-out;
 
-
         &:focus {
           outline-color: #0095FF;
           outline-width: 0.5px;
@@ -65,23 +61,20 @@
           transition: outline-color 0.2s ease-in-out;
         }
 
-
         &:not(:focus) {
           color: #989eac;
+
           &::-webkit-input-placeholder {
             color: #D0DAEF;
           }
-
 
           &:-ms-input-placeholder {
             color: #D0DAEF;
           }
 
-
           &::-ms-input-placeholder {
             color: #D0DAEF;
           }
-
 
           &::placeholder {
             color: #D0DAEF;
@@ -89,9 +82,18 @@
         }
       }
 
-
       &:focus-within .input-label {
         color: #0095FF;
+      }
+
+      .error-message {
+        position: absolute;
+        right: -15px;
+        top: 6px;
+        color: #F44336;
+        font-size: 12px;
+        font-weight: 500;
+        line-height: 1.5;
       }
     }
 
@@ -101,19 +103,43 @@
     }
 
     button {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 30px;
       background-color: #1DC763;
       border: none;
       border-radius: 4px;
       color: #FFFFFF;
       font-size: 16px;
-      font-weight: 500;
+      font-weight: 600;
       line-height: 1.5;
       padding: 16px;
-      width: 400px;
+      width: 350px;
       transition: background-color 0.2s ease-in-out;
 
       &:hover {
         background-color: #14A957;
+      }
+
+      &:disabled{
+        background-color: #14a95798;
+        cursor: not-allowed;
+      }
+
+      .loading{
+        border: 3px solid transparent;
+        border-radius: 50%;
+        border-top-color: #FFFFFF;
+        height: 16px;
+        width: 16px;
+        animation: isRotating 1s infinite;
+
+        @keyframes isRotating {
+          to{
+            transform: rotate(1turn);
+          }
+        }
       }
     }
   }
