@@ -1,4 +1,4 @@
-import { NgModule } from '@angular/core';
+import { NgModule, CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { HeaderComponent } from './../components/header/header.component';
 
@@ -11,6 +11,7 @@ import { HeaderComponent } from './../components/header/header.component';
   ],
   exports: [
     HeaderComponent
-  ]
+  ],
+  schemas: [CUSTOM_ELEMENTS_SCHEMA] // Adicione esta linha
 })
 export class SharedModule { }

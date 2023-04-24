@@ -12,7 +12,7 @@ import { DashboardRoutes } from './dashboard.routes';
     DashboardComponent
   ],
   imports: [
-  SharedModule,
+    SharedModule,
     CommonModule,
     RouterModule.forChild(DashboardRoutes)
   ]
