@@ -1,0 +1,5 @@
+<div class="container" (mouseenter)="toggleLine()" (mouseleave)="toggleLine()">
+  <h3 [style.color]="'white'">{{ title }}</h3>
+  <div [style.backgroundColor]="lineColor" [ngClass]="{'line': true, 'line-expanded': isExpanded}" [style.width]="isExpanded ? lineWidth : null"></div>
+  <img [src]="imageSrc" [alt]="imageAlt" [style.borderColor]="imageBorder" class="dynamic-image">
+</div>
