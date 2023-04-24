@@ -1,24 +1,6 @@
-@mixin header-theme($bg-color, $text-color, $separator-color, $profile-bg-color, $profile-text-color) {
-  background-color: $bg-color;
-
-  .header-date,
-  .header-separator,
-  .header-switch-env {
-    color: $text-color;
-  }
-
-  .header-separator {
-    background-color: $separator-color;
-  }
-
-  .header-profile-initials {
-    background-color: $profile-bg-color;
-    color: $profile-text-color;
-  }
-}
-
 .header {
   display: flex;
+  flex-wrap: wrap;
   justify-content: space-between;
   align-items: center;
   padding: 1rem;
@@ -27,21 +9,29 @@
   &-logo {
     margin-left: 40px;
     width: 140px;
+    flex-shrink: 0;
   }
 
   &-info {
     display: flex;
     align-items: center;
+    margin-left: 1rem;
+    margin-right: 1rem;
+    flex-grow: 1;
+    justify-content: space-between;
+    flex-wrap: wrap;
   }
 
   &-date {
     margin: 0 0.5rem;
+    white-space: nowrap;
   }
 
   &-separator {
     margin: 0 1.3rem;
     width: 1px;
     height: 24px;
+    flex-shrink: 0;
   }
 
   &-profile-image,
@@ -65,7 +55,7 @@
   }
 
   .arrow-profile {
-    margin-right: 2rem;
+    margin-right: 1rem;
     margin-left: 1rem;
     cursor: pointer;
   }
@@ -74,8 +64,9 @@
     display: flex;
     align-items: center;
     justify-content: flex-start;
-    margin-left: 3rem;
+    margin-left: 1rem;
     width: 100%;
+    margin-top: 1rem;
   }
 
   &-switch-env {
@@ -88,7 +79,7 @@
     cursor: pointer;
     display: flex;
     align-items: center;
-    margin-right: 10rem;
+    margin-right: 1rem;
 
     &:hover {
       background-color: rgba(113, 131, 166, 0.1);
@@ -105,12 +96,25 @@
     @include header-theme(#252323, #E4EBFB, #E4EBFB, #999, #fff);
   }
 
-  // Tema Light
+ // Tema Light
   &.header-light {
-    @include header-theme(#FFFFFF, #7183A6, #7183A6, #999, #fff);
+  @include header-theme(#FFFFFF, #7183A6, #7183A6, #999, #fff);
 
-    &-logo {
-      filter: brightness(0) invert(1);
+  &-logo {
+    filter: brightness(0) invert(1);
+  }
+
+  &-switch-env {
+    color: #fff;
+    border-color: #fff;
+
+    &:hover {
+      background-color: rgba(255, 255, 255, 0.1);
     }
   }
+
+  &-icon-environment {
+    color: #fff;
+  }
+}
 }
