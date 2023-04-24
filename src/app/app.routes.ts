@@ -11,6 +11,10 @@ export const AppRoutes: Routes = [
     loadChildren: () => import('./pages/homepage/homepage.module').then(x => x.HomepageModule)
   },
   {
+    path: 'dashboard',
+    loadChildren: () => import('./pages/dashboard/dashboard.module').then(x => x.DashboardModule)
+  },
+  {
     path: '',
     pathMatch: 'full',
     redirectTo: 'home'
