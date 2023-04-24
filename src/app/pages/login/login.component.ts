@@ -1,7 +1,8 @@
-import { Component, OnDestroy } from '@angular/core';
+import { Component } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
-import { Subscription } from 'rxjs';
+import { Subscription, throwError } from 'rxjs';
+import { catchError } from 'rxjs/operators';
 import { LoginService } from '../../resources/service/login.service';
 import { CookieService } from 'ngx-cookie-service';
 
@@ -10,11 +11,12 @@ import { CookieService } from 'ngx-cookie-service';
   templateUrl: './login.component.html',
   styleUrls: ['./login.component.scss']
 })
-export class LoginComponent implements OnDestroy {
+export class LoginComponent {
   loginForm!: FormGroup;
   loginSub!: Subscription;
   errorMessage = '';
   processing = false;
+  requestFailed = false;
 
   constructor(
     private builder: FormBuilder,
@@ -34,18 +36,19 @@ export class LoginComponent implements OnDestroy {
       return;
     }
     this.processing = true;
-    this.loginSub = this.service.LoginUser(this.loginForm.value).subscribe(
-      (response: any) => {
-        setTimeout(() => {
-          this.processing = false;
-          const token = response.access_token;
-          this.cookieService.set('token', token);
-          this.router.navigate(['/']);
-        }, 3000);
-      },
-      (error) => {
+    this.loginSub = this.service.LoginUser(this.loginForm.value).pipe(
+      catchError((error) => {
         this.processing = false;
         this.errorMessage = 'Login ou senha inválidos';
+        this.requestFailed = true;
+        return throwError(error);
+      })
+    ).subscribe(
+      (response: any) => {
+        this.processing = false;
+        const token = response.access_token;
+        this.cookieService.set('token', token);
+        this.router.navigate(['/']);
       }
     );
   }

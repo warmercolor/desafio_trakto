@@ -1,10 +1,11 @@
-import { ComponentFixture, TestBed } from '@angular/core/testing';
+import { ComponentFixture, TestBed, tick, fakeAsync } from '@angular/core/testing';
 import { ReactiveFormsModule } from '@angular/forms';
 import { RouterTestingModule } from '@angular/router/testing';
 import { LoginComponent } from './login.component';
 import { LoginService } from '../../resources/service/login.service';
 import { CookieService } from 'ngx-cookie-service';
 import { of } from 'rxjs';
+import { cold } from 'jasmine-marbles';
 
 
 describe('LoginComponent', () => {
@@ -20,7 +21,7 @@ describe('LoginComponent', () => {
     await TestBed.configureTestingModule({
       declarations: [LoginComponent],
       imports: [ReactiveFormsModule, RouterTestingModule],
-      providers: [
+providers: [
         { provide: LoginService, useValue: loginServiceSpy },
         { provide: CookieService, useValue: cookieServiceSpy },
       ],
@@ -69,7 +70,7 @@ describe('LoginComponent', () => {
     expect(loginService.LoginUser).not.toHaveBeenCalled();
   });
 
-  it('should set error message if login fails', () => {
+  it('should call login service on submit', fakeAsync(() => {
     const loginForm = component.loginForm;
     loginForm.setValue({
       email: 'fulano@gmail.com',
@@ -77,13 +78,15 @@ describe('LoginComponent', () => {
     });
 
     loginService.LoginUser.and.returnValue(of({
-      error: 'invalid_grant',
-      error_description: 'Invalid email or password',
+      access_token: 'token123',
+      token_type: 'Bearer'
     }));
 
     component.onSubmit();
 
-    expect(component.processing).toBeFalse();
-    expect(component.errorMessage).toBe('Login ou senha inválidos');
-  });
+    tick(3000);
+
+    expect(loginService.LoginUser).toHaveBeenCalledOnceWith(loginForm.value);
+    expect(cookieService.set).toHaveBeenCalledWith('token', 'token123');
+  }));
 });

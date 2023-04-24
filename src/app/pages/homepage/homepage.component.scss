@@ -1,0 +1,13 @@
+.content {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  gap: 1rem;
+  padding: 2rem;
+  background-image: url('../../../assets//images/bg_home.svg');
+  width: 96.1%;
+  height: 100vh;
+  object-fit: cover;
+  position: fixed;
+}
