@@ -9,7 +9,7 @@ import { CookieModule } from 'ngx-cookie';
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
   ],
   imports: [
     RouterModule.forRoot(AppRoutes),

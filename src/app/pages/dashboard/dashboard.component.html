@@ -1,1 +1,43 @@
-<app-header theme="light"></app-header>
+<div class="container">
+  <app-header theme="light"></app-header>
+
+  <app-banner></app-banner>
+
+  <app-frame
+    dateRange="Semana 06/02 até 28/02"
+    title="Material didático"
+    subtitle="Acesse suas últimas apresentações de aula."
+  >
+    <div class="material-cards">
+      <app-card
+        imageSrc="../../../assets/images/card_example.svg"
+        imageAlt="Slide de alguma coisa"
+        [slideCount]="0"
+        materialTitle="Aula 1: Fono-ortografia"
+      >
+      </app-card>
+      <app-card
+        imageSrc="../../../assets/images/card_example.svg"
+        imageAlt="Slide de alguma coisa"
+        [slideCount]="0"
+        materialTitle="Aula 1: Fono-ortografia"
+    >
+      </app-card>
+      <app-card
+        imageSrc="../../../assets/images/card_example.svg"
+        imageAlt="Slide de alguma coisa"
+        [slideCount]="0"
+        materialTitle="Aula 1: Fono-ortografia"
+      >
+      </app-card>
+      <app-card
+        imageSrc="../../../assets/images/card_example.svg"
+        imageAlt="Slide de alguma coisa"
+        [slideCount]="0"
+        materialTitle="Aula 1: Fono-ortografia"
+      >
+      </app-card>
+    </div>
+  </app-frame>
+</div>
+

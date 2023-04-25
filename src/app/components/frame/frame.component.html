@@ -1,0 +1,18 @@
+<div class="content">
+  <div class="arrows">
+    <span class="date-range">
+      {{ dateRange }}
+    </span>
+    <button class="arrow arror-right">
+      <img src="../../../assets/images/arrow_right.svg" alt="">
+    </button>
+    <button class="arrow arror-left">
+      <img src="../../../assets/images/arrow_left.svg" alt="">
+    </button>
+  </div>
+  <h2 class="title"> {{ title }} </h2>
+  <p class="subtitle"> {{ subtitle}} </p>
+  <div>
+    <ng-content></ng-content>
+  </div>
+</div>

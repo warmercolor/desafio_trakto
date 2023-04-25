@@ -1,0 +1,38 @@
+.content{
+  background-color: #FFFFFF;
+  margin: 0 auto;
+  width: 95vw;
+  box-sizing: border-box;
+  padding: 50px;
+  border-radius: 8px;
+
+  .date-range{
+    background-color: #E4EBFB;
+    color: #7183A6;
+    font-size: 19.2px;
+    display: inline-block;
+    padding: 0.5rem;
+    border-radius: 50px;
+    margin-left: -10px;
+  }
+
+  .arrow{
+    background: none;
+    border: none;
+    color: #7183A6;
+    cursor: pointer;
+  }
+
+  .title{
+    font-weight: 700;
+    font-size: 24px;
+    margin-bottom: 0.5rem;
+    color: #354564;
+  }
+
+  .subtitle{
+    font-weight: 400;
+    font-size: 16px;
+    color: #7183A6;
+  }
+}

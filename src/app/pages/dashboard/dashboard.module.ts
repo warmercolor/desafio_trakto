@@ -4,12 +4,18 @@ import { DashboardComponent } from './dashboard.component';
 import { SharedModule } from './../../shared/shared.module';
 import { RouterModule } from '@angular/router';
 import { DashboardRoutes } from './dashboard.routes';
+import { BannerComponent } from './../../components/banner/banner.component';
+import { FrameComponent } from './../../components/frame/frame.component';
+import { CardComponent } from './../../components/card/card.component';
 
 
 
 @NgModule({
   declarations: [
-    DashboardComponent
+    DashboardComponent,
+    BannerComponent,
+    FrameComponent,
+    CardComponent
   ],
   imports: [
     SharedModule,
