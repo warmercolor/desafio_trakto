@@ -8,12 +8,14 @@ import { Component, Input, OnInit } from '@angular/core';
 export class CardComponent implements OnInit{
   @Input() imageSrc: string = ''
   @Input() imageAlt: string = ''
-  @Input() slideCount: number = 0
+  @Input() slideCount: number = 0;
   @Input() materialTitle: string = ''
+  @Input() slideIndex: number = 0;
 
   constructor() {}
 
   ngOnInit(): void {
 
   }
+
 }

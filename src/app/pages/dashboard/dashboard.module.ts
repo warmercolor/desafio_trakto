@@ -1,3 +1,4 @@
+import { ScrollingModule } from '@angular/cdk/scrolling';
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { DashboardComponent } from './dashboard.component';
@@ -18,6 +19,7 @@ import { CardComponent } from './../../components/card/card.component';
     CardComponent
   ],
   imports: [
+  ScrollingModule,
     SharedModule,
     CommonModule,
     RouterModule.forChild(DashboardRoutes)

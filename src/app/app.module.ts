@@ -5,7 +5,6 @@ import { RouterModule } from '@angular/router';
 import { AppRoutes } from './app.routes';
 import { HttpClientModule } from '@angular/common/http';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
-import { CookieModule } from 'ngx-cookie';
 
 @NgModule({
   declarations: [
@@ -17,7 +16,6 @@ import { CookieModule } from 'ngx-cookie';
     HttpClientModule,
     FormsModule,
     ReactiveFormsModule,
-    CookieModule.forRoot(),
   ],
   providers: [],
   bootstrap: [AppComponent]

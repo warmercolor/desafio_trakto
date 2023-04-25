@@ -20,4 +20,8 @@ export class LoginService {
   LoginUser(credentials: any): Observable<TokenResponse | { error: string; error_description: string; }>{
     return this.http.post<TraktoAPI>(`${this.apiurl}/auth/signin`, credentials);
   }
+
+  SlideAll(credentials: any): Observable<any> {
+    return this.http.get(`${this.apiurl}/document`, credentials);
+}
 }

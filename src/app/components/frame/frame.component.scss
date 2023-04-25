@@ -1,7 +1,7 @@
-.content{
+.container{
   background-color: #FFFFFF;
   margin: 0 auto;
-  width: 95vw;
+  width: 95%;
   box-sizing: border-box;
   padding: 50px;
   border-radius: 8px;
@@ -34,5 +34,18 @@
     font-weight: 400;
     font-size: 16px;
     color: #7183A6;
+  }
+
+  .card-wrapper {
+    display: flex;
+    width: 100%;
+    gap: 2rem;
+    overflow: hidden;
+    flex-wrap: nowrap;
+    transition: transform 0.5s ease-in-out;
+
+    app-card{
+      width: 310px;
+    }
   }
 }
