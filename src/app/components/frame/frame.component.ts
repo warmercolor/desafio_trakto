@@ -1,5 +1,6 @@
-import { Component, HostListener, Input, OnInit, ViewChild, ElementRef } from '@angular/core';
+import { Component, Input, OnInit, ViewChild, ElementRef } from '@angular/core';
 import { CdkVirtualScrollViewport } from '@angular/cdk/scrolling';
+import { LoginService } from './../../resources/service/login.service';
 
 @Component({
   selector: 'app-frame',
@@ -10,6 +11,8 @@ export class FrameComponent implements OnInit {
   @Input() dateRange: string = '';
   @Input() title: string = '';
   @Input() subtitle: string = '';
+  scrollOffset = 310;
+  isLoading = true;
   @ViewChild('cardWrapper', { static: true }) cardWrapper!: ElementRef;
   @ViewChild(CdkVirtualScrollViewport, { static: true }) viewport!: CdkVirtualScrollViewport;
 
@@ -45,13 +48,25 @@ export class FrameComponent implements OnInit {
       subtitle: 'Aula 6: Fono-ortografia',
     },
   ]
-  imagePosition = 0;
-  startDraggingPosition = 0;
-  scrollOffset = 310;
 
-  constructor() {}
+  constructor(private loginService: LoginService) {}
 
-  ngOnInit(): void {}
+  ngOnInit(): void {
+    this.loginService.SlideAll({}).subscribe(
+      (response: any) => {
+        this.cards = response.data.map((card: any) => ({
+          id: card.id,
+          imageSrc: card.thumbs.raw,
+          subtitle: card.title,
+        }));
+        this.isLoading = false;
+      },
+      (error: any) => {
+        console.log('Error:', error);
+        this.isLoading = false;
+      }
+    );
+  }
 
 
   moveLeft() {

@@ -3,10 +3,12 @@ import { CommonModule } from '@angular/common';
 import { HeaderComponent } from './../components/header/header.component';
 import { CookieModule } from 'ngx-cookie';
 import { ScrollingModule } from '@angular/cdk/scrolling';
+import { LoginService } from '../resources/service/login.service';
 
 @NgModule({
   providers: [
-    CookieModule
+    CookieModule,
+    LoginService
   ],
   declarations: [
     HeaderComponent

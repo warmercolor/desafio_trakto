@@ -1,7 +1,8 @@
 import { Injectable } from '@angular/core';
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { TraktoAPI } from './../models/response';
 import { Observable } from 'rxjs';
+import { CookieService } from 'ngx-cookie-service';
 
 
 interface TokenResponse {
@@ -13,7 +14,7 @@ interface TokenResponse {
 })
 export class LoginService {
 
-  constructor(private http:HttpClient) {}
+  constructor(private http:HttpClient, private cookieService: CookieService) {}
 
   apiurl='https://api.trakto.io/';
 
@@ -22,6 +23,14 @@ export class LoginService {
   }
 
   SlideAll(credentials: any): Observable<any> {
-    return this.http.get(`${this.apiurl}/document`, credentials);
-}
+    const headers = new HttpHeaders({
+      'Authorization': 'Bearer ' + this.getAccessTokenFromCookie(),
+    });
+    return this.http.get(`${this.apiurl}/document`, { headers: headers, ...credentials });
+  }
+
+  private getAccessTokenFromCookie(): string {
+    return this.cookieService.get('token');
+  }
+
 }

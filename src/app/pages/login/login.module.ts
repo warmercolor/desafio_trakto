@@ -7,6 +7,7 @@ import { FormsModule } from '@angular/forms';
 import { LoginService } from './../../resources/service/login.service';
 import { ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
+import { SharedModule } from './../../shared/shared.module';
 
 
 
@@ -15,14 +16,12 @@ import { HttpClientModule } from '@angular/common/http';
     LoginComponent
   ],
   imports: [
+    SharedModule,
     HttpClientModule,
     CommonModule,
     FormsModule,
     ReactiveFormsModule,
     RouterModule.forChild(LoginRoutes)
-  ],
-  providers: [
-    LoginService,
   ]
 })
 export class LoginModule { }
