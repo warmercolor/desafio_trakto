@@ -7,6 +7,10 @@
   dateRange="Semana 06/02 até 28/02"
   title="Material didático"
   subtitle="Acesse suas últimas apresentações de aula."
+  textColor="#4743FF"
+  bgColor="transparent"
+  hoverColor="#4743FF"
+  titleBtn="Ver todo conteúdo"
   >
     <ng-container *ngFor="let card of cards">
       <app-card
@@ -24,6 +28,11 @@
   dateRange="Semana 06/02 até 28/02"
   title="Vídeo aulas"
   subtitle="Complemente os estudos assistindo o conteúdo de forma dinâmica."
+  textColor="#FF0100"
+  bgColor="transparent"
+  hoverColor="#FF0100"
+  titleBtn="Abrir no Youtube"
+  icon="../../../assets/images/youtube_icon.svg"
   >
     <ng-container *ngFor="let video of videos">
       <app-card

@@ -6,27 +6,32 @@ import { Component, Input, OnInit, ViewChild, ElementRef } from '@angular/core';
   styleUrls: ['./frame.component.scss']
 })
 export class FrameComponent implements OnInit {
-  @Input() dateRange: string = '';
-  @Input() title: string = '';
-  @Input() subtitle: string = '';
+  @Input() dateRange: string='';
+  @Input() title: string='';
+  @Input() subtitle: string='';
+  @Input() textColor: string='';
+  @Input() bgColor: string='';
+  @Input() hoverColor: string='';
+  @Input() titleBtn: string = '';
+  @Input() icon?: string = '';
   @ViewChild('cardWrapper', { static: true }) cardWrapper!: ElementRef;
-  scrollOffset = 310;
+  scrollOffset=310;
 
-  constructor() {}
+  constructor() { }
   ngOnInit(): void {
 
   }
 
   moveLeft() {
     this.cardWrapper.nativeElement.scrollTo({
-      left: this.cardWrapper.nativeElement.scrollLeft - this.scrollOffset,
+      left: this.cardWrapper.nativeElement.scrollLeft-this.scrollOffset,
       behavior: 'smooth',
     });
   }
 
   moveRight() {
     this.cardWrapper.nativeElement.scrollTo({
-      left: this.cardWrapper.nativeElement.scrollLeft + this.scrollOffset,
+      left: this.cardWrapper.nativeElement.scrollLeft+this.scrollOffset,
       behavior: 'smooth',
     });
   }

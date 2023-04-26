@@ -10,7 +10,12 @@ export class DashboardComponent implements OnInit {
   isLoading = true;
   @ViewChild('cardWrapper', { static: true }) cardWrapper!: ElementRef;
   scrollOffset = 310;
-  cards = []
+  cards = [
+    {
+      imageSrc: '',
+      subtitle: ''
+    },
+  ]
 
   videos = [
     {
@@ -41,7 +46,7 @@ export class DashboardComponent implements OnInit {
     {
       imageSrc:
         'https://www.youtube.com/embed/vvjhXpyfsw0',
-      subtitle: 'Como criar story',
+      subtitle: 'Como criar story animado',
     },
   ]
 

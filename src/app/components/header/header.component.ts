@@ -1,6 +1,7 @@
 import { Component, OnInit, Input } from '@angular/core';
 import { LoginService } from './../../resources/service/login.service';
 import { TraktoProfile } from './../../resources/models/responseProfile';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-header',
@@ -12,8 +13,9 @@ export class HeaderComponent implements OnInit {
   currentDate!: string;
   userName: string = "First Name";
   profileImageUrl: string | null = '';
+  showMenu: boolean = false
 
-  constructor(private service: LoginService) {}
+  constructor(private service: LoginService, private router: Router) {}
 
   @Input() theme: 'dark' | 'light' = 'dark';
 
@@ -45,5 +47,13 @@ export class HeaderComponent implements OnInit {
 
   hasProfileImage(): boolean {
     return this.profileImageUrl !== null;
+  }
+
+  navigateToHome(): void {
+    this.router.navigate(['/']);
+  }
+
+  toggleMenu(): void {
+    this.showMenu = !this.showMenu;
   }
 }

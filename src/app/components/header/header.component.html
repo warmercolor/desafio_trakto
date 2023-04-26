@@ -1,7 +1,7 @@
 <header class="header" [ngClass]="{'header-light': theme === 'light'}">
   <img class="header-logo" [attr.src]="theme === 'light' ? '../../../assets/images/logo_trakto_light.svg' : '../../../assets/images/logo_trakto_dark.svg'" alt="Trackto Logo" />
   <div class="header-container-switch">
-    <button *ngIf="theme === 'light'" class="header-switch-env">
+    <button *ngIf="theme === 'light'" class="header-switch-env" (click)="navigateToHome()">
       <img class="header-icon-environment" src="../../../assets/images/door.svg"/>
       Trocar ambiente
     </button>

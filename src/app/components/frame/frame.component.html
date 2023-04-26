@@ -9,7 +9,13 @@
     <button class="arrow arrow-left" (click)="moveRight()">
       <img src="../../../assets/images/arrow_left.svg" alt="">
     </button>
-    <app-button></app-button>
+    <app-button
+      [textColor]="textColor"
+      [bgColor]="bgColor"
+      [hoverColor]="hoverColor"
+      [titleBtn]="titleBtn"
+      [icon]="icon"
+    ></app-button>
   </div>
   <h2 class="title"> {{ title }} </h2>
   <p class="subtitle"> {{ subtitle }} </p>
