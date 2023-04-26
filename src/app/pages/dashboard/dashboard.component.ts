@@ -10,6 +10,7 @@ export class DashboardComponent implements OnInit {
   isLoading = true;
   @ViewChild('cardWrapper', { static: true }) cardWrapper!: ElementRef;
   scrollOffset = 310;
+  cards = []
 
   videos = [
     {
@@ -43,41 +44,6 @@ export class DashboardComponent implements OnInit {
       subtitle: 'Como criar story',
     },
   ]
-
-  cards = [
-    {
-      imageSrc:
-        'https://noticiasconcursos.com.br/wp-content/uploads/2021/08/noticiasconcursos.com.br-trakto-anuncia-vagas-presenciais-e-remotas-banner-thumb-post-trakto.jpg',
-      subtitle: 'Aula 1: Fono-ortografia',
-    },
-    {
-      imageSrc:
-        'https://noticiasconcursos.com.br/wp-content/uploads/2021/08/noticiasconcursos.com.br-trakto-anuncia-vagas-presenciais-e-remotas-banner-thumb-post-trakto.jpg',
-      subtitle: 'Aula 2: Fono-ortografia',
-    },
-    {
-      imageSrc:
-        'https://noticiasconcursos.com.br/wp-content/uploads/2021/08/noticiasconcursos.com.br-trakto-anuncia-vagas-presenciais-e-remotas-banner-thumb-post-trakto.jpg',
-      subtitle: 'Aula 3: Fono-ortografia',
-    },
-    {
-      imageSrc:
-        'https://noticiasconcursos.com.br/wp-content/uploads/2021/08/noticiasconcursos.com.br-trakto-anuncia-vagas-presenciais-e-remotas-banner-thumb-post-trakto.jpg',
-      subtitle: 'Aula 4: Fono-ortografia',
-    },
-    {
-      imageSrc:
-        'https://noticiasconcursos.com.br/wp-content/uploads/2021/08/noticiasconcursos.com.br-trakto-anuncia-vagas-presenciais-e-remotas-banner-thumb-post-trakto.jpg',
-      subtitle: 'Aula 5: Fono-ortografia',
-    },
-    {
-      imageSrc:
-        'https://noticiasconcursos.com.br/wp-content/uploads/2021/08/noticiasconcursos.com.br-trakto-anuncia-vagas-presenciais-e-remotas-banner-thumb-post-trakto.jpg',
-      subtitle: 'Aula 6: Fono-ortografia',
-    },
-  ]
-
-
 
   constructor(private LoginService: LoginService) {}
 
