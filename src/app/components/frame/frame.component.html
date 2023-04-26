@@ -3,21 +3,14 @@
     <span class="date-range">
       {{ dateRange }}
     </span>
-    <button class="arrow arrow-left" (click)="moveLeft()">
-      <img src="../../../assets/images/arrow_left.svg" alt="">
-    </button>
     <button class="arrow arrow-right" (click)="moveRight()">
       <img src="../../../assets/images/arrow_right.svg" alt="">
+    </button>
+    <button class="arrow arrow-left" (click)="moveLeft()">
+      <img src="../../../assets/images/arrow_left.svg" alt="">
     </button>
   </div>
   <h2 class="title"> {{ title }} </h2>
   <p class="subtitle"> {{ subtitle }} </p>
-  <div class="card-wrapper" #cardWrapper>
-      <app-card
-        *ngFor="let card of cards"
-        [imageSrc]="card.imageSrc"
-        [imageAlt]="card.subtitle"
-        [materialTitle]="card.subtitle"
-      ></app-card>
-  </div>
+  <ng-content></ng-content>
 </div>

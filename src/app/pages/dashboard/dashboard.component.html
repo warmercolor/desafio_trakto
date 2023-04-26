@@ -4,10 +4,33 @@
   <app-banner></app-banner>
 
   <app-frame
-    dateRange="Semana 06/02 até 28/02"
-    title="Material didático"
-    subtitle="Acesse suas últimas apresentações de aula."
+  dateRange="Semana 06/02 até 28/02"
+  title="Material didático"
+  subtitle="Acesse suas últimas apresentações de aula."
   >
+    <div class="card-wrapper" #cardWrapper>
+      <app-card
+      *ngFor="let card of cards"
+      [imageSrc]="card.imageSrc"
+      [imageAlt]="card.subtitle"
+      [materialTitle]="card.subtitle"
+      ></app-card>
+    </div>
+  </app-frame>
+
+  <app-frame
+  dateRange="Semana 06/02 até 28/02"
+  title="Vídeo aulas"
+  subtitle="Complemente os estudos assistindo o conteúdo de forma dinâmica."
+  >
+    <div class="card-wrapper" #cardWrapper>
+      <app-card
+      *ngFor="let card of cards"
+      [imageSrc]="card.imageSrc"
+      [imageAlt]="card.subtitle"
+      [materialTitle]="card.subtitle"
+      ></app-card>
+    </div>
   </app-frame>
 </div>
 
