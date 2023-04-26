@@ -17,17 +17,21 @@
     border-radius: 50px;
     margin-left: -10px;
   }
+  .arrows{
+    position: relative;
+    
+    .arrow{
+      background: none;
+      border: none;
+      color: #7183A6;
+      cursor: pointer;
 
-  .arrow{
-    background: none;
-    border: none;
-    color: #7183A6;
-    cursor: pointer;
-
-    img{
-      width: 12px;
+      img{
+        width: 12px;
+      }
     }
   }
+
 
   .title{
     font-weight: 700;
@@ -41,4 +45,13 @@
     font-size: 16px;
     color: #7183A6;
   }
+
+  .card-wrapper {
+    display: flex;
+    width: 100%;
+    gap: 2rem;
+    overflow: hidden;
+    flex-wrap: nowrap;
+  }
 }
+

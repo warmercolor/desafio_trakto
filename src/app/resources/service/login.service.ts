@@ -29,6 +29,13 @@ export class LoginService {
     return this.http.get(`${this.apiurl}/document`, { headers: headers, ...credentials });
   }
 
+  Profile(credentials: any): Observable<any> {
+    const headers = new HttpHeaders({
+      'Authorization': 'Bearer ' + this.getAccessTokenFromCookie(),
+    });
+    return this.http.get(`${this.apiurl}/auth/profile`, { headers: headers, ...credentials });
+  }
+
   private getAccessTokenFromCookie(): string {
     return this.cookieService.get('token');
   }

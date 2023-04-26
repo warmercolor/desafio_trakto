@@ -1,6 +1,5 @@
 import { Component, ElementRef, OnInit, ViewChild } from '@angular/core';
 import { LoginService } from './../../resources/service/login.service';
-import { CdkVirtualScrollViewport } from '@angular/cdk/scrolling';
 
 @Component({
   selector: 'app-dashboard',
@@ -9,7 +8,41 @@ import { CdkVirtualScrollViewport } from '@angular/cdk/scrolling';
 })
 export class DashboardComponent implements OnInit {
   isLoading = true;
-  @ViewChild(CdkVirtualScrollViewport, { static: true }) viewport!: CdkVirtualScrollViewport;
+  @ViewChild('cardWrapper', { static: true }) cardWrapper!: ElementRef;
+  scrollOffset = 310;
+
+  videos = [
+    {
+      imageSrc:
+      'https://www.youtube.com/embed/BTok0FvxA7Q',
+      subtitle: 'Trakto Design - Perfeito para empreendedores',
+    },
+    {
+      imageSrc:
+        'https://www.youtube.com/embed/kPdWyVW0o8E',
+      subtitle: 'Trakto para Empresas',
+    },
+    {
+      imageSrc:
+        'https://www.youtube.com/embed/oRWfxt1Z_fA',
+      subtitle: '4 formas de ganhar dinheiro com a Trakto!',
+    },
+    {
+      imageSrc:
+        'https://www.youtube.com/embed/MbEPCzDeQeY',
+      subtitle: 'Confira as NOVIDADES e ATUALIZAÇÕES da TRAKTO',
+    },
+    {
+      imageSrc:
+        'https://www.youtube.com/embed/1oKuM-S4Tcc',
+      subtitle: 'Como criar e publicar o Trakto Link',
+    },
+    {
+      imageSrc:
+        'https://www.youtube.com/embed/vvjhXpyfsw0',
+      subtitle: 'Como criar story',
+    },
+  ]
 
   cards = [
     {
@@ -44,7 +77,7 @@ export class DashboardComponent implements OnInit {
     },
   ]
 
-  
+
 
   constructor(private LoginService: LoginService) {}
 
@@ -63,6 +96,14 @@ export class DashboardComponent implements OnInit {
         this.isLoading = false;
       }
     );
+  }
+
+  moveLeft() {
+    this.cardWrapper.nativeElement.scrollLeft -= this.scrollOffset;
+  }
+
+  moveRight() {
+    this.cardWrapper.nativeElement.scrollLeft += this.scrollOffset;
   }
 
 }

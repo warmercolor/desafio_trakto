@@ -18,10 +18,16 @@ export class FrameComponent implements OnInit {
   }
 
   moveLeft() {
-    this.cardWrapper.nativeElement.scrollLeft -= this.scrollOffset;
+    this.cardWrapper.nativeElement.scrollTo({
+      left: this.cardWrapper.nativeElement.scrollLeft - this.scrollOffset,
+      behavior: 'smooth',
+    });
   }
 
   moveRight() {
-    this.cardWrapper.nativeElement.scrollLeft += this.scrollOffset;
+    this.cardWrapper.nativeElement.scrollTo({
+      left: this.cardWrapper.nativeElement.scrollLeft + this.scrollOffset,
+      behavior: 'smooth',
+    });
   }
 }

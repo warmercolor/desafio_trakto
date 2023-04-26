@@ -8,14 +8,16 @@
   title="Material didático"
   subtitle="Acesse suas últimas apresentações de aula."
   >
-    <div class="card-wrapper" #cardWrapper>
+    <ng-container *ngFor="let card of cards">
       <app-card
-      *ngFor="let card of cards"
-      [imageSrc]="card.imageSrc"
-      [imageAlt]="card.subtitle"
-      [materialTitle]="card.subtitle"
+        *ngIf="!isLoading"
+        [imageSrc]="card.imageSrc"
+        [imageAlt]="card.subtitle"
+        slideFix="1 Slide"
+        [materialTitle]="card.subtitle"
       ></app-card>
-    </div>
+      <app-skeleton *ngIf="isLoading"></app-skeleton>
+    </ng-container>
   </app-frame>
 
   <app-frame
@@ -23,14 +25,17 @@
   title="Vídeo aulas"
   subtitle="Complemente os estudos assistindo o conteúdo de forma dinâmica."
   >
-    <div class="card-wrapper" #cardWrapper>
+    <ng-container *ngFor="let video of videos">
       <app-card
-      *ngFor="let card of cards"
-      [imageSrc]="card.imageSrc"
-      [imageAlt]="card.subtitle"
-      [materialTitle]="card.subtitle"
+        *ngIf="!isLoading"
+        [imageSrc]="video.imageSrc"
+        [imageAlt]="video.subtitle"
+        slideFix="Youtube"
+        [materialTitle]="video.subtitle"
+        [contentType]="'video'"
       ></app-card>
-    </div>
+      <app-skeleton *ngIf="isLoading"></app-skeleton>
+    </ng-container>
   </app-frame>
 </div>
 
