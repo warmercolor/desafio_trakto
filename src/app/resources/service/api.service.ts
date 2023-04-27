@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
-import { TraktoAPI } from './../models/response';
+import { TraktoAPI } from '../models/response';
 import { Observable } from 'rxjs';
 import { CookieService } from 'ngx-cookie-service';
 
@@ -14,30 +14,33 @@ interface TokenResponse {
 })
 export class LoginService {
 
-  constructor(private http:HttpClient, private cookieService: CookieService) {}
+  constructor(private http: HttpClient, private cookieService: CookieService) { }
 
-  apiurl='https://api.trakto.io/';
-
-  LoginUser(credentials: any): Observable<TokenResponse | { error: string; error_description: string; }>{
-    return this.http.post<TraktoAPI>(`${this.apiurl}/auth/signin`, credentials);
-  }
-
-  SlideAll(credentials: any): Observable<any> {
-    const headers = new HttpHeaders({
-      'Authorization': 'Bearer ' + this.getAccessTokenFromCookie(),
-    });
-    return this.http.get(`${this.apiurl}/document`, { headers: headers, ...credentials });
-  }
-
-  Profile(credentials: any): Observable<any> {
-    const headers = new HttpHeaders({
-      'Authorization': 'Bearer ' + this.getAccessTokenFromCookie(),
-    });
-    return this.http.get(`${this.apiurl}/auth/profile`, { headers: headers, ...credentials });
-  }
+  private apiurl='https://api.trakto.io/';
 
   private getAccessTokenFromCookie(): string {
     return this.cookieService.get('token');
   }
 
+  LoginUser(credentials: any): Observable<TokenResponse|{ error: string; error_description: string; }> {
+    return this.http.post<TraktoAPI>(`${this.apiurl}/auth/signin`, credentials);
+  }
+
+  SlideAll(credentials: any): Observable<any> {
+    const headers=new HttpHeaders({
+      'Authorization': 'Bearer '+this.getAccessTokenFromCookie(),
+    });
+    return this.http.get(`${this.apiurl}/document`, { headers: headers, ...credentials });
+  }
+
+  Profile(credentials: any): Observable<any> {
+    const headers=new HttpHeaders({
+      'Authorization': 'Bearer '+this.getAccessTokenFromCookie(),
+    });
+    return this.http.get(`${this.apiurl}/auth/profile`, { headers: headers, ...credentials });
+  }
+
+  ClearCookie(): void {
+    return this.cookieService.delete('token')
+  }
 }

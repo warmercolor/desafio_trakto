@@ -1,7 +1,8 @@
-import { Component, OnInit, Input } from '@angular/core';
-import { LoginService } from './../../resources/service/login.service';
+import { Component, OnInit, Input, ViewChild } from '@angular/core';
+import { LoginService } from '../../resources/service/api.service';
 import { TraktoProfile } from './../../resources/models/responseProfile';
 import { Router } from '@angular/router';
+import { MatMenuTrigger } from '@angular/material/menu';
 
 @Component({
   selector: 'app-header',
@@ -11,21 +12,21 @@ import { Router } from '@angular/router';
 
 export class HeaderComponent implements OnInit {
   currentDate!: string;
-  userName: string = "First Name";
-  profileImageUrl: string | null = '';
-  showMenu: boolean = false
+  userName: string="First Name";
+  profileImageUrl: string|null='';
+  @ViewChild(MatMenuTrigger) trigger!: MatMenuTrigger;
 
-  constructor(private service: LoginService, private router: Router) {}
+  constructor(private service: LoginService, private router: Router) { }
 
-  @Input() theme: 'dark' | 'light' = 'dark';
+  @Input() theme: 'dark'|'light'='dark';
 
   ngOnInit(): void {
-    this.currentDate = this.formatDate(new Date());
+    this.currentDate=this.formatDate(new Date());
 
     this.service.Profile({}).subscribe(
       (response: TraktoProfile) => {
-        this.userName = response.firstname
-        this.profileImageUrl = response.logo.url.low.secure_url
+        this.userName=response.firstname
+        this.profileImageUrl=response.logo.url.low.secure_url
       },
       (error: any) => {
         console.log('Error:', error)
@@ -34,11 +35,11 @@ export class HeaderComponent implements OnInit {
   }
 
   formatDate(date: Date): string {
-    const day = date.getDate();
-    const month = date.getMonth() + 1;
-    const year = date.getFullYear();
+    const day=date.getDate();
+    const month=date.getMonth()+1;
+    const year=date.getFullYear();
 
-    return `${day < 10 ? '0' + day : day}/${month < 10 ? '0' + month : month}/${year}`;
+    return `${day<10? '0'+day:day}/${month<10? '0'+month:month}/${year}`;
   }
 
   getInitials(name: string): string {
@@ -46,14 +47,15 @@ export class HeaderComponent implements OnInit {
   }
 
   hasProfileImage(): boolean {
-    return this.profileImageUrl !== null;
+    return this.profileImageUrl!==null;
   }
 
   navigateToHome(): void {
     this.router.navigate(['/']);
   }
 
-  toggleMenu(): void {
-    this.showMenu = !this.showMenu;
+  userLogout(): void {
+    this.service.ClearCookie()
+    this.router.navigate(['/login'])
   }
 }

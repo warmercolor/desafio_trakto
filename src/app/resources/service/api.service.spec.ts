@@ -1,7 +1,7 @@
 import { TestBed } from '@angular/core/testing';
 import { HttpClientTestingModule, HttpTestingController } from '@angular/common/http/testing';
-import { LoginService } from './login.service';
-import { TraktoAPI } from './../models/response';
+import { LoginService } from './api.service';
+import { TraktoAPI } from '../models/response';
 import { ReactiveFormsModule } from '@angular/forms';
 
 describe('LoginService', () => {
@@ -13,8 +13,8 @@ describe('LoginService', () => {
       imports: [HttpClientTestingModule],
       providers: [LoginService]
     });
-    service = TestBed.inject(LoginService);
-    httpMock = TestBed.inject(HttpTestingController);
+    service=TestBed.inject(LoginService);
+    httpMock=TestBed.inject(HttpTestingController);
   });
 
 
@@ -27,11 +27,11 @@ describe('LoginService', () => {
   });
 
   it('should return expected response when calling LoginUser method', () => {
-    const expectedResponse: TraktoAPI = {
+    const expectedResponse: TraktoAPI={
       access_token: 'example_token',
       token_type: 'Bearer'
     };
-    const mockData = {
+    const mockData={
       email: 'example@test.com',
       password: 'example_password'
     };
@@ -40,7 +40,7 @@ describe('LoginService', () => {
       expect(response).toEqual(expectedResponse);
     });
 
-    const request = httpMock.expectOne(`${service.apiurl}/auth/signin`);
+    const request=httpMock.expectOne(`${service.apiurl}/auth/signin`);
     expect(request.request.method).toBe('POST');
     request.flush(expectedResponse);
   });

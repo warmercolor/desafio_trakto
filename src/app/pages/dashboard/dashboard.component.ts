@@ -1,5 +1,5 @@
 import { Component, ElementRef, OnInit, ViewChild } from '@angular/core';
-import { LoginService } from './../../resources/service/login.service';
+import { LoginService } from '../../resources/service/api.service';
 
 @Component({
   selector: 'app-dashboard',
@@ -7,20 +7,20 @@ import { LoginService } from './../../resources/service/login.service';
   styleUrls: ['./dashboard.component.scss']
 })
 export class DashboardComponent implements OnInit {
-  isLoading = true;
+  isLoading=true;
   @ViewChild('cardWrapper', { static: true }) cardWrapper!: ElementRef;
-  scrollOffset = 310;
-  cards = [
+  scrollOffset=310;
+  cards=[
     {
       imageSrc: '',
       subtitle: ''
     },
   ]
 
-  videos = [
+  videos=[
     {
       imageSrc:
-      'https://www.youtube.com/embed/BTok0FvxA7Q',
+        'https://www.youtube.com/embed/BTok0FvxA7Q',
       subtitle: 'Trakto Design - Perfeito para empreendedores',
     },
     {
@@ -50,31 +50,31 @@ export class DashboardComponent implements OnInit {
     },
   ]
 
-  constructor(private LoginService: LoginService) {}
+  constructor(private LoginService: LoginService) { }
 
   ngOnInit(): void {
     this.LoginService.SlideAll({}).subscribe(
       (response: any) => {
-        this.cards = response.data.map((card: any) => ({
+        this.cards=response.data.map((card: any) => ({
           id: card.id,
           imageSrc: card.thumbs.raw,
           subtitle: card.title,
         }));
-        this.isLoading = false;
+        this.isLoading=false;
       },
       (error: any) => {
         console.log('Error:', error);
-        this.isLoading = false;
+        this.isLoading=false;
       }
     );
   }
 
   moveLeft() {
-    this.cardWrapper.nativeElement.scrollLeft -= this.scrollOffset;
+    this.cardWrapper.nativeElement.scrollLeft-=this.scrollOffset;
   }
 
   moveRight() {
-    this.cardWrapper.nativeElement.scrollLeft += this.scrollOffset;
+    this.cardWrapper.nativeElement.scrollLeft+=this.scrollOffset;
   }
 
 }

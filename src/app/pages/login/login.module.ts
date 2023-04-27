@@ -4,7 +4,7 @@ import { LoginComponent } from './login.component';
 import { LoginRoutes } from './login.routes';
 import { RouterModule } from '@angular/router';
 import { FormsModule } from '@angular/forms';
-import { LoginService } from './../../resources/service/login.service';
+import { LoginService } from '../../resources/service/api.service';
 import { ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 import { SharedModule } from './../../shared/shared.module';

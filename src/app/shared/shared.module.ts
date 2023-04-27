@@ -2,22 +2,27 @@ import { NgModule, CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { HeaderComponent } from './../components/header/header.component';
 import { CookieModule } from 'ngx-cookie';
-import { LoginService } from '../resources/service/login.service';
+import { LoginService } from '../resources/service/api.service';
+import { MatMenuModule } from '@angular/material/menu';
+import { MAT_DIALOG_DEFAULT_OPTIONS, MatDialogModule } from '@angular/material/dialog';
 
 @NgModule({
   providers: [
     CookieModule,
-    LoginService
+    LoginService,
+    {provide: MAT_DIALOG_DEFAULT_OPTIONS, useValue: {hasBackdrop: false}}
   ],
   declarations: [
     HeaderComponent,
   ],
   imports: [
-  CommonModule,
+    CommonModule,
+    MatMenuModule,
+    MatDialogModule
   ],
   exports: [
     HeaderComponent
   ],
-  schemas: [CUSTOM_ELEMENTS_SCHEMA]
+  schemas: [CUSTOM_ELEMENTS_SCHEMA],
 })
 export class SharedModule { }
