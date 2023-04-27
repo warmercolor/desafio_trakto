@@ -1,4 +1,3 @@
-// card.component.ts
 import { Component, Input, OnInit } from '@angular/core';
 import { DomSanitizer, SafeResourceUrl } from '@angular/platform-browser';
 
@@ -19,12 +18,6 @@ export class CardComponent implements OnInit {
   constructor(private sanitizer: DomSanitizer) {}
 
   ngOnInit(): void {
-    if (this.contentType === 'video') {
-      this.safeVideoUrl = this.sanitizer.bypassSecurityTrustResourceUrl(this.imageSrc);
-    }
-  }
-
-  ngOnDestroy(): void{
     if (this.contentType === 'video') {
       this.safeVideoUrl = this.sanitizer.bypassSecurityTrustResourceUrl(this.imageSrc);
     }

@@ -10,8 +10,6 @@ import { CardComponent } from './../../components/card/card.component';
 import { SkeletonComponent } from './../../components/skeleton/skeleton.component';
 import { ButtonFrameComponent } from './../../components/button-frame/button-frame.component';
 
-
-
 @NgModule({
   declarations: [
     DashboardComponent,

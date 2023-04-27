@@ -1,5 +1,5 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
-
+import { By } from '@angular/platform-browser';
 import { BannerComponent } from './banner.component';
 
 describe('BannerComponent', () => {
@@ -19,5 +19,10 @@ describe('BannerComponent', () => {
 
   it('should create', () => {
     expect(component).toBeTruthy();
+  });
+
+  it('should display the banner image', () => {
+    const bannerImg = fixture.debugElement.query(By.css('img')).nativeElement;
+    expect(bannerImg.src).toContain('/assets/images/banner.svg');
   });
 });
