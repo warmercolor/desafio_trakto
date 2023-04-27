@@ -12,11 +12,11 @@ interface TokenResponse {
 @Injectable({
   providedIn: 'root'
 })
-export class LoginService {
+export class ServiceTrakto {
 
   constructor(private http: HttpClient, private cookieService: CookieService) { }
 
-  private apiurl='https://api.trakto.io/';
+  public apiurl='https://api.trakto.io/';
 
   private getAccessTokenFromCookie(): string {
     return this.cookieService.get('token');

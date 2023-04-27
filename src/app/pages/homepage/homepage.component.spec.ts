@@ -3,6 +3,7 @@ import { HomepageModule } from './homepage.module';
 import { HomepageComponent } from './homepage.component';
 import { RouterTestingModule } from '@angular/router/testing';
 import { Router } from '@angular/router';
+import { HttpClientTestingModule } from '@angular/common/http/testing';
 
 describe('HomepageComponent', () => {
   let component: HomepageComponent;
@@ -11,7 +12,7 @@ describe('HomepageComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      imports: [HomepageModule, RouterTestingModule],
+      imports: [HomepageModule, RouterTestingModule, HttpClientTestingModule],
       declarations: [HomepageComponent],
     }).compileComponents();
 

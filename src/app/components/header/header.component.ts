@@ -1,5 +1,5 @@
 import { Component, OnInit, Input, ViewChild } from '@angular/core';
-import { LoginService } from '../../resources/service/api.service';
+import { ServiceTrakto } from '../../resources/service/api.service';
 import { TraktoProfile } from './../../resources/models/responseProfile';
 import { Router } from '@angular/router';
 import { MatMenuTrigger } from '@angular/material/menu';
@@ -16,7 +16,7 @@ export class HeaderComponent implements OnInit {
   profileImageUrl: string|null='';
   @ViewChild(MatMenuTrigger) trigger!: MatMenuTrigger;
 
-  constructor(private service: LoginService, private router: Router) { }
+  constructor(private service: ServiceTrakto, private router: Router) { }
 
   @Input() theme: 'dark'|'light'='dark';
 

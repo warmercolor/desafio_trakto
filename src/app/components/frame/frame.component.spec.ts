@@ -1,6 +1,6 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
-
 import { FrameComponent } from './frame.component';
+import { ButtonFrameComponent } from '../button-frame/button-frame.component';
 
 describe('FrameComponent', () => {
   let component: FrameComponent;
@@ -8,7 +8,7 @@ describe('FrameComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ FrameComponent ]
+      declarations: [ FrameComponent, ButtonFrameComponent ]
     })
     .compileComponents();
 

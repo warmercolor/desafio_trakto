@@ -1,5 +1,5 @@
 import { Component, ElementRef, OnInit, ViewChild } from '@angular/core';
-import { LoginService } from '../../resources/service/api.service';
+import { ServiceTrakto } from '../../resources/service/api.service';
 
 @Component({
   selector: 'app-dashboard',
@@ -50,10 +50,10 @@ export class DashboardComponent implements OnInit {
     },
   ]
 
-  constructor(private LoginService: LoginService) { }
+  constructor(private service: ServiceTrakto) { }
 
   ngOnInit(): void {
-    this.LoginService.SlideAll({}).subscribe(
+    this.service.SlideAll({}).subscribe(
       (response: any) => {
         this.cards=response.data.map((card: any) => ({
           id: card.id,

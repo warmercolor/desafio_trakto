@@ -3,7 +3,7 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { Subscription, throwError } from 'rxjs';
 import { catchError } from 'rxjs/operators';
-import { LoginService } from '../../resources/service/api.service';
+import { ServiceTrakto } from '../../resources/service/api.service';
 import { CookieService } from 'ngx-cookie-service';
 
 @Component({
@@ -20,7 +20,7 @@ export class LoginComponent {
 
   constructor(
     private builder: FormBuilder,
-    private service: LoginService,
+    private service: ServiceTrakto,
     private router: Router,
     private cookieService: CookieService
   ) {

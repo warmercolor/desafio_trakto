@@ -1,19 +1,18 @@
 import { TestBed } from '@angular/core/testing';
 import { HttpClientTestingModule, HttpTestingController } from '@angular/common/http/testing';
-import { LoginService } from './api.service';
+import { ServiceTrakto } from './api.service';
 import { TraktoAPI } from '../models/response';
-import { ReactiveFormsModule } from '@angular/forms';
 
-describe('LoginService', () => {
-  let service: LoginService;
+describe('ServiceTrakto', () => {
+  let service: ServiceTrakto;
   let httpMock: HttpTestingController;
 
   beforeEach(() => {
     TestBed.configureTestingModule({
       imports: [HttpClientTestingModule],
-      providers: [LoginService]
+      providers: [ServiceTrakto]
     });
-    service=TestBed.inject(LoginService);
+    service=TestBed.inject(ServiceTrakto);
     httpMock=TestBed.inject(HttpTestingController);
   });
 

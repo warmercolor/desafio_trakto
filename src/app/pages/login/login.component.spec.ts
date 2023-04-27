@@ -2,7 +2,7 @@ import { ComponentFixture, TestBed, tick, fakeAsync } from '@angular/core/testin
 import { ReactiveFormsModule } from '@angular/forms';
 import { RouterTestingModule } from '@angular/router/testing';
 import { LoginComponent } from './login.component';
-import { LoginService } from '../../resources/service/api.service';
+import { ServiceTrakto } from '../../resources/service/api.service';
 import { CookieService } from 'ngx-cookie-service';
 import { of } from 'rxjs';
 import { cold } from 'jasmine-marbles';
@@ -11,7 +11,7 @@ import { cold } from 'jasmine-marbles';
 describe('LoginComponent', () => {
   let component: LoginComponent;
   let fixture: ComponentFixture<LoginComponent>;
-  let loginService: jasmine.SpyObj<LoginService>;
+  let loginService: jasmine.SpyObj<ServiceTrakto>;
   let cookieService: jasmine.SpyObj<CookieService>;
 
   beforeEach(async () => {
@@ -22,14 +22,14 @@ describe('LoginComponent', () => {
       declarations: [LoginComponent],
       imports: [ReactiveFormsModule, RouterTestingModule],
       providers: [
-        { provide: LoginService, useValue: loginServiceSpy },
+        { provide: ServiceTrakto, useValue: loginServiceSpy },
         { provide: CookieService, useValue: cookieServiceSpy },
       ],
     }).compileComponents();
 
     fixture=TestBed.createComponent(LoginComponent);
     component=fixture.componentInstance;
-    loginService=TestBed.inject(LoginService) as jasmine.SpyObj<LoginService>;
+    loginService=TestBed.inject(ServiceTrakto) as jasmine.SpyObj<ServiceTrakto>;
     cookieService=TestBed.inject(CookieService) as jasmine.SpyObj<CookieService>;
   });
 
