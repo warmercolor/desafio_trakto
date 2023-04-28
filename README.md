@@ -67,7 +67,7 @@ $ ng serve
 
 ```
 
-Caso não possua o cli, você pode iniciar dessa forma:
+Caso não possua o Angular-CLI, você pode iniciar dessa forma:
 
 ```sh
 
