@@ -37,7 +37,7 @@ Destaco que o design da aplicação foi fielmente baseado em um protótipo forne
 
 ## ⚙ Características
 <ul>
-    <li>60% do site está responsivo</li>
+    <li>Maior parte do site está responsivo</li>
     <li>Skeleton do conteúdo que será carregado</li>
     <li>Modulação para evitar lazy loading</li>
     <li>Proteção de rotas com AuthGuard</li>
@@ -48,7 +48,7 @@ Destaco que o design da aplicação foi fielmente baseado em um protótipo forne
 
 Após baixar a aplicação, abra o terminal e execute alguns comandos para começar.
 
-Lembrando que você precisa ter o Angular-CLI e o NodeJS para rodar esses comandos.
+Lembrando que você precisa ter o NodeJS para rodar esses comandos.
 
 1. Instale as dependencias:
 
@@ -67,8 +67,16 @@ $ ng serve
 
 ```
 
+Caso não possua o cli, você pode iniciar dessa forma:
 
-2. Acesse esse link:
+```sh
+
+$ npm start
+
+```
+
+
+3. Acesse esse link:
 
 ```sh
 
