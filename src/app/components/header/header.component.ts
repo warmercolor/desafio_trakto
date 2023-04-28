@@ -37,7 +37,7 @@ export class HeaderComponent implements OnInit {
         this.userName = response.firstname;
         this.profileImageUrl = response.logo.url.low.secure_url;
       },
-      (error: any) => {
+      (error) => {
         console.log('Error loading user profile:', error);
       }
     );
