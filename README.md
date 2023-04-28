@@ -1,4 +1,4 @@
-# <img align="center" src="./src/assets/images/logo_trakto_dark.svg"/>
+# <img align="center" src="./src/assets/images/logo_trakto_dark.svg"/> [![wakatime](https://wakatime.com/badge/user/e895113b-6f58-4036-978b-aab469fe5f91/project/9422d883-5ae4-42b1-99ec-2d4cc0d62ef6.svg)](https://wakatime.com/badge/user/e895113b-6f58-4036-978b-aab469fe5f91/project/9422d883-5ae4-42b1-99ec-2d4cc0d62ef6)
 
 <p>A aplicação foi criada usando o framework Angular na versão 15, focando na criação de uma experiência de usuário fluída e intuitiva para um professor que deseja elaborar apresentações na plataforma Trakto. A interação com a plataforma Trakto é realizada através da sua API, que foi integralmente consumida para as operações necessárias.
 
@@ -78,4 +78,4 @@ $ http://localhost:4200/
 
 ## 👩🏻 Desenvolvedora
 <p>Thaisa Alice</p>
-<img width="150px" heigth="150px" src="./src/assets/images/alice.jpg"/>
+<img width="150px" border-radius heigth="150px" src="./src/assets/images/alice.jpg"/>
