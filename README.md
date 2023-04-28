@@ -78,4 +78,4 @@ $ http://localhost:4200/
 
 ## 👩🏻 Desenvolvedora
 <p>Thaisa Alice</p>
-<img src="./src/assets/images/alice.jpg"/>
+<img width="150px" heigth="150px" src="./src/assets/images/alice.jpg"/>
