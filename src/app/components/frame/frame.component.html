@@ -1,14 +1,16 @@
 <div class="container" [class.container-alternative]="frameType === 'view'">
   <div *ngIf="frameType !== 'view'" class="arrows">
-    <span class="date-range">
-      {{ dateRange }}
-    </span>
-    <button class="arrow arrow-right" (click)="scrollCardsLeft()">
-      <img src="../../../assets/images/arrow_right.svg" alt="">
-    </button>
-    <button class="arrow arrow-left" (click)="scrollCardsRight()">
-      <img src="../../../assets/images/arrow_left.svg" alt="">
-    </button>
+    <div class="arrow-container">
+      <span class="date-range">
+        {{ dateRange }}
+      </span>
+      <button class="arrow arrow-right" (click)="scrollCardsLeft()">
+        <img src="../../../assets/images/arrow_right.svg" alt="">
+      </button>
+      <button class="arrow arrow-left" (click)="scrollCardsRight()">
+        <img src="../../../assets/images/arrow_left.svg" alt="">
+      </button>
+    </div>
     <app-button
       [titleBtn]="titleBtn"
       [textColor]="textColor"

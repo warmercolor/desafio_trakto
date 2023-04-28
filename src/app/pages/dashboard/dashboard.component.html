@@ -18,8 +18,9 @@
         *ngIf="!isLoading"
         [imageSrc]="card.imageSrc"
         [imageAlt]="card.subtitle"
-        slideFix="1 Slide"
+        [slideFix]="card.pages"
         [materialTitle]="card.subtitle"
+        (click)="redirectToEditor(card.id)"
       />
       <app-skeleton *ngIf="isLoading"/>
     </ng-container>

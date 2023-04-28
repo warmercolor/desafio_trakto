@@ -13,3 +13,26 @@
     }
   }
 
+@media screen and (max-width: 480px) {
+  .banner {
+    margin: 0;
+  }
+
+  .banner img {
+    width: 100%;
+  }
+}
+
+@media screen and (min-width: 481px) and (max-width: 1024px) {
+  .banner {
+    margin: 0;
+  }
+
+  .banner img {
+    width: 100%;
+  }
+}
+
+
+
+

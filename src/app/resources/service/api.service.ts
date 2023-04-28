@@ -3,6 +3,7 @@ import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { TraktoAPI } from '../models/response';
 import { Observable } from 'rxjs';
 import { CookieService } from 'ngx-cookie-service';
+import { RequestLogin } from '../models/requestLogin';
 
 
 interface TokenResponse {
@@ -22,18 +23,18 @@ export class ServiceTrakto {
     return this.cookieService.get('token');
   }
 
-  LoginUser(credentials: any): Observable<TokenResponse|{ error: string; error_description: string; }> {
+  LoginUser(credentials: RequestLogin): Observable<TokenResponse|{ error: string; error_description: string; }> {
     return this.http.post<TraktoAPI>(`${this.apiurl}/auth/signin`, credentials);
   }
 
-  SlideAll(credentials: any): Observable<any> {
+  SlideAll(credentials: Object): Observable<any> {
     const headers=new HttpHeaders({
       'Authorization': 'Bearer '+this.getAccessTokenFromCookie(),
     });
     return this.http.get(`${this.apiurl}/document`, { headers: headers, ...credentials });
   }
 
-  Profile(credentials: any): Observable<any> {
+  Profile(credentials: Object): Observable<any> {
     const headers=new HttpHeaders({
       'Authorization': 'Bearer '+this.getAccessTokenFromCookie(),
     });

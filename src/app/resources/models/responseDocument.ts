@@ -1,3 +1,7 @@
+export interface DataDocument{
+  data:                 TraktoDocument[];
+}
+
 export interface TraktoDocument {
   is_template:           boolean;
   app_reference:         Reference;
@@ -57,4 +61,11 @@ export interface Page {
 export interface Product {
   app_product_reference: PageFormatReference;
   created_at:            PageFormatReference;
+}
+
+export interface ICards {
+  id: string;
+  imageSrc: string;
+  subtitle: string;
+  pages: string;
 }

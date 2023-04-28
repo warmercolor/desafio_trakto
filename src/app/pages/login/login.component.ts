@@ -11,6 +11,7 @@ import { CookieService } from 'ngx-cookie-service';
   templateUrl: './login.component.html',
   styleUrls: ['./login.component.scss']
 })
+
 export class LoginComponent {
   loginForm!: FormGroup;
   loginSub!: Subscription;

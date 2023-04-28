@@ -34,32 +34,35 @@ export class HeaderComponent implements OnInit {
   loadUserProfile(): void {
     this.service.Profile({}).subscribe(
       (response: TraktoProfile) => {
-        this.userName = response.firstname;
-        this.profileImageUrl = response.logo.url.low.secure_url;
+        if (response.logo && response.logo.url && response.logo.url.low) {
+          this.profileImageUrl = response.logo.url.low.secure_url;
+        } else {
+          this.userName = response.firstname;
+        }
       },
-      (error) => {
+      (error: any) => {
         console.log('Error loading user profile:', error);
       }
-    );
-  }
+      );
+    }
 
-  getInitials(name: string): string {
-    return name
+    getInitials(name: string): string {
+      return name
       .split(' ')
       .map((part) => part.charAt(0).toUpperCase())
       .join('');
-  }
+    }
 
-  hasProfileImage(): boolean {
-    return !!this.profileImageUrl;
-  }
+    hasProfileImage(): boolean {
+      return !!this.profileImageUrl;
+    }
 
-  navigateToHome(): void {
-    this.router.navigate(['/']);
-  }
+    navigateToHome(): void {
+      this.router.navigate(['/']);
+    }
 
-  userLogout(): void {
-    this.service.ClearCookie();
-    this.router.navigate(['/login']);
+    userLogout(): void {
+      this.service.ClearCookie();
+      this.router.navigate(['/login']);
+    }
   }
-}

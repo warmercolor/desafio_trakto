@@ -1,6 +1,7 @@
 import { Component, ElementRef, OnInit, ViewChild } from '@angular/core';
 import { ServiceTrakto } from '../../resources/service/api.service';
 import { Router } from '@angular/router';
+import { DataDocument, ICards, TraktoDocument } from 'src/app/resources/models/responseDocument';
 
 @Component({
   selector: 'app-dashboard',
@@ -13,8 +14,10 @@ export class DashboardComponent implements OnInit {
   scrollOffset=310;
   cards=[
     {
+      id: '',
       imageSrc: '',
       subtitle: '',
+      pages: ''
     },
   ]
 
@@ -56,10 +59,11 @@ export class DashboardComponent implements OnInit {
   ngOnInit(): void {
     this.service.SlideAll({}).subscribe(
       (response: any) => {
-        this.cards=response.data.map((card: any) => ({
+        this.cards=response.data.map((card: TraktoDocument) => ({
           id: card.id,
           imageSrc: card.thumbs.raw,
           subtitle: card.title,
+          pages: card.pages[0].length.toString() + ' Slide'
         }));
         this.isLoading=false;
       },
@@ -76,6 +80,11 @@ export class DashboardComponent implements OnInit {
 
   moveRight() {
     this.cardWrapper.nativeElement.scrollLeft+=this.scrollOffset;
+  }
+
+  redirectToEditor(cardId: string) {
+    const url = `https://editor.trakto.io/presentation/p/${cardId}`;
+    window.open(url, '_blank');
   }
 
 }
