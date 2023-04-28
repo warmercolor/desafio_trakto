@@ -1,1 +1,52 @@
-<app-header theme="light"></app-header>
+<div class="container">
+  <app-header theme="light"></app-header>
+
+  <app-banner/>
+
+  <app-frame
+  dateRange="Semana 06/02 até 28/02"
+  title="Material didático"
+  subtitle="Acesse suas últimas apresentações de aula."
+  textColor="#4743FF"
+  bgColor="transparent"
+  hoverColor="#4743FF"
+  titleBtn="Ver todo conteúdo"
+  buttonUrl="/view"
+  >
+    <ng-container *ngFor="let card of cards">
+      <app-card
+        *ngIf="!isLoading"
+        [imageSrc]="card.imageSrc"
+        [imageAlt]="card.subtitle"
+        [slideFix]="card.pages"
+        [materialTitle]="card.subtitle"
+        (click)="redirectToEditor(card.id)"
+      />
+      <app-skeleton *ngIf="isLoading"/>
+    </ng-container>
+  </app-frame>
+
+  <app-frame
+  dateRange="Semana 06/02 até 28/02"
+  title="Vídeo aulas"
+  subtitle="Complemente os estudos assistindo o conteúdo de forma dinâmica."
+  textColor="#FF0100"
+  bgColor="transparent"
+  hoverColor="#FF0100"
+  titleBtn="Abrir no Youtube"
+  icon="../../../assets/images/youtube_icon.svg"
+  buttonUrl="https://www.youtube.com/c/Trakto"
+  >
+    <ng-container *ngFor="let video of videos">
+      <app-card
+        *ngIf="!isLoading"
+        [imageSrc]="video.imageSrc"
+        [imageAlt]="video.subtitle"
+        slideFix="Youtube"
+        [materialTitle]="video.subtitle"
+        [contentType]="'video'"
+      />
+      <app-skeleton *ngIf="isLoading" />
+    </ng-container>
+  </app-frame>
+</div>

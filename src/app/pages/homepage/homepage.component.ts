@@ -13,4 +13,8 @@ export class HomepageComponent {
   navigateToDashboard() {
     this.router.navigate(['/dashboard']);
   }
+
+  navigateToExternalPage(url: string): void {
+    window.open(url, '_blank')
+  }
 }

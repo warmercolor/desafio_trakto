@@ -4,15 +4,15 @@ import { DashboardComponent } from './dashboard.component';
 import { SharedModule } from './../../shared/shared.module';
 import { RouterModule } from '@angular/router';
 import { DashboardRoutes } from './dashboard.routes';
-
-
+import { BannerComponent } from './../../components/banner/banner.component';
 
 @NgModule({
   declarations: [
-    DashboardComponent
+    DashboardComponent,
+    BannerComponent,
   ],
   imports: [
-  SharedModule,
+    SharedModule,
     CommonModule,
     RouterModule.forChild(DashboardRoutes)
   ]

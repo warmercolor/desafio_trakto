@@ -1,0 +1,145 @@
+.container{
+  background-color: #FFFFFF;
+  margin: 0 auto;
+  width: 95%;
+  box-sizing: border-box;
+  padding: 50px;
+  border-radius: 8px;
+  height: 470px;
+  margin-bottom: 70px;
+
+  &::-webkit-scrollbar {
+    width: 9px;
+  }
+
+  &::-webkit-scrollbar-thumb {
+    background-color: #a5a5a5;
+    border-radius: 8px;
+  }
+
+  &.container-alternative {
+    width: 95%;
+    height: 100%;
+    overflow: auto;
+    align-self: center;
+  }
+
+  .date-range{
+    background-color: #E4EBFB;
+    color: #7183A6;
+    font-size: 19.2px;
+    display: inline-block;
+    padding: 0.5rem;
+    border-radius: 50px;
+    margin-left: -10px;
+  }
+  .arrows{
+    position: relative;
+
+    .arrow{
+      background: none;
+      border: none;
+      color: #7183A6;
+      cursor: pointer;
+
+      img{
+        width: 12px;
+      }
+    }
+  }
+
+
+  .title{
+    font-weight: 700;
+    font-size: 24px;
+    margin-bottom: 0.5rem;
+    color: #354564;
+
+    &.title-alternative{
+      margin-left: 1.355rem;
+    }
+  }
+
+  .subtitle{
+    font-weight: 400;
+    font-size: 16px;
+    color: #7183A6;
+
+    &.subtitle-alternative{
+      margin-left: 1.355rem;
+    }
+  }
+
+  .card-wrapper {
+    display: flex;
+    width: 100%;
+    gap: 2rem;
+    overflow: hidden;
+    flex-wrap: nowrap;
+
+    &.card-wrapper-alternative {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(310px, 1fr));
+      gap: 2rem;
+      justify-content: start;
+    }
+  }
+
+  @media screen and (max-width: 767px) {
+    width: 100%;
+    padding: 20px;
+    height: auto;
+
+    
+
+    .title {
+      font-size: 20px;
+
+      &.title-alternative{
+        margin-left: 0;
+      }
+    }
+
+    .subtitle {
+      font-size: 14px;
+
+      &.subtitle-alternative{
+        margin-left: 0;
+      }
+    }
+
+    .card-wrapper {
+      gap: 1rem;
+
+      &.card-wrapper-alternative {
+        grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+        gap: 1rem;
+      }
+    }
+  }
+
+  @media screen and (min-width: 768px) and (max-width: 1023px) {
+    padding: 30px;
+
+    .card-wrapper {
+      gap: 1.5rem;
+
+      &.card-wrapper-alternative {
+        grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+      }
+    }
+  }
+
+  @media screen and (min-width: 1024px) {
+    padding: 50px;
+
+    .card-wrapper {
+      gap: 2rem;
+
+      &.card-wrapper-alternative {
+        grid-template-columns: repeat(auto-fill, minmax(310px, 1fr));
+      }
+    }
+  }
+}
+

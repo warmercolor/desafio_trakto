@@ -1,3 +1,4 @@
+@import '~@angular/material/prebuilt-themes/indigo-pink.css';
 @mixin header-theme($bg-color, $text-color, $separator-color, $profile-bg-color, $profile-text-color) {
   background-color: $bg-color;
 
@@ -18,7 +19,6 @@
 }
 
 .header {
-  width: 100vw;
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -33,6 +33,10 @@
   &-info {
     display: flex;
     align-items: center;
+
+    .notify{
+      cursor: pointer;
+    }
   }
 
   &-date {
@@ -97,7 +101,6 @@
   }
 
   &-icon-environment {
-    // Adicione o estilo do ícone de porta aqui (por exemplo, usando uma imagem de fundo ou uma biblioteca de ícones)
     margin-right: 0.3rem;
   }
 
@@ -114,6 +117,12 @@
       filter: brightness(0) invert(1);
     }
   }
+}
+
+::ng-deep .mat-menu-item {
+  background: red; /* Altere para a cor de fundo desejada */
+  color: white; /* Altere para a cor de texto desejada */
+
 }
 
 /* Media Queries para responsividade */

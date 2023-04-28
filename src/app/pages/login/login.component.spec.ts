@@ -2,7 +2,7 @@ import { ComponentFixture, TestBed, tick, fakeAsync } from '@angular/core/testin
 import { ReactiveFormsModule } from '@angular/forms';
 import { RouterTestingModule } from '@angular/router/testing';
 import { LoginComponent } from './login.component';
-import { LoginService } from '../../resources/service/login.service';
+import { ServiceTrakto } from '../../resources/service/api.service';
 import { CookieService } from 'ngx-cookie-service';
 import { of } from 'rxjs';
 import { cold } from 'jasmine-marbles';
@@ -11,26 +11,26 @@ import { cold } from 'jasmine-marbles';
 describe('LoginComponent', () => {
   let component: LoginComponent;
   let fixture: ComponentFixture<LoginComponent>;
-  let loginService: jasmine.SpyObj<LoginService>;
+  let loginService: jasmine.SpyObj<ServiceTrakto>;
   let cookieService: jasmine.SpyObj<CookieService>;
 
   beforeEach(async () => {
-    const loginServiceSpy = jasmine.createSpyObj('LoginService', ['LoginUser']);
-    const cookieServiceSpy = jasmine.createSpyObj('CookieService', ['set']);
+    const loginServiceSpy=jasmine.createSpyObj('LoginService', ['LoginUser']);
+    const cookieServiceSpy=jasmine.createSpyObj('CookieService', ['set']);
 
     await TestBed.configureTestingModule({
       declarations: [LoginComponent],
       imports: [ReactiveFormsModule, RouterTestingModule],
-providers: [
-        { provide: LoginService, useValue: loginServiceSpy },
+      providers: [
+        { provide: ServiceTrakto, useValue: loginServiceSpy },
         { provide: CookieService, useValue: cookieServiceSpy },
       ],
     }).compileComponents();
 
-    fixture = TestBed.createComponent(LoginComponent);
-    component = fixture.componentInstance;
-    loginService = TestBed.inject(LoginService) as jasmine.SpyObj<LoginService>;
-    cookieService = TestBed.inject(CookieService) as jasmine.SpyObj<CookieService>;
+    fixture=TestBed.createComponent(LoginComponent);
+    component=fixture.componentInstance;
+    loginService=TestBed.inject(ServiceTrakto) as jasmine.SpyObj<ServiceTrakto>;
+    cookieService=TestBed.inject(CookieService) as jasmine.SpyObj<CookieService>;
   });
 
   it('should create', () => {
@@ -38,7 +38,7 @@ providers: [
   });
 
   it('should call login service on submit', async () => {
-    const loginForm = component.loginForm;
+    const loginForm=component.loginForm;
     loginForm.setValue({
       email: 'fulano@gmail.com',
       password: 'password123',
@@ -58,7 +58,7 @@ providers: [
   });
 
   it('should set error message if form is invalid', () => {
-    const loginForm = component.loginForm;
+    const loginForm=component.loginForm;
     loginForm.setValue({
       email: '',
       password: '',
@@ -71,7 +71,7 @@ providers: [
   });
 
   it('should call login service on submit', fakeAsync(() => {
-    const loginForm = component.loginForm;
+    const loginForm=component.loginForm;
     loginForm.setValue({
       email: 'fulano@gmail.com',
       password: 'password123',

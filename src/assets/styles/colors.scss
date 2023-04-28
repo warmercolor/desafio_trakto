@@ -1,6 +1,18 @@
-$primary-color: #04183E;
-$secondary-color: #0095FF;
-$tertiary-color: #1DC763;
-$background-color: #EFF2F9;
-$placeholder-color: #D0DAEF;
-$shadow-color: rgba(0, 0, 0, 0.2);
+// Cores principais
+$white: #FFFFFF;
+$blue: #354564;
+$gray-blue: #7183A6;
+$light-blue: #E4EBFB;
+$lighter-blue: #EFF2F9;
+$dark-gray: #252323;
+$black: rgba(12, 12, 12, 0.7);
+
+// Cores de componentes específicos
+$header-profile-bg-color: #999;
+$switch-env-hover-bg-color: rgba(113, 131, 166, 0.1);
+$error-message-color: #F44336;
+$button-bg-color: #1DC763;
+$button-hover-bg-color: #14A957;
+$button-disabled-bg-color: #14a95798;
+$input-field-color: #04183E;
+$input-placeholder-color: #D0DAEF;

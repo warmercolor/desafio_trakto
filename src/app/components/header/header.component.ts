@@ -1,4 +1,8 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, OnInit, Input, ViewChild } from '@angular/core';
+import { ServiceTrakto } from '../../resources/service/api.service';
+import { TraktoProfile } from './../../resources/models/responseProfile';
+import { Router } from '@angular/router';
+import { MatMenuTrigger } from '@angular/material/menu';
 
 @Component({
   selector: 'app-header',
@@ -6,31 +10,59 @@ import { Component, OnInit, Input } from '@angular/core';
   styleUrls: ['./header.component.scss'],
 })
 export class HeaderComponent implements OnInit {
-  currentDate!: string;
-  userName: string = "John Doe";
-  profileImageUrl: string | null = 'https://bahaiteachings.s3.us-west-1.amazonaws.com/2018/10/How-Set-Good-Example-Be-Role-Model-Others.jpg';
+  currentDate: string = '';
+  userName: string = '';
+  profileImageUrl: string | null = null;
 
-  constructor() {}
-
+  @ViewChild(MatMenuTrigger) trigger!: MatMenuTrigger;
   @Input() theme: 'dark' | 'light' = 'dark';
+
+  constructor(private service: ServiceTrakto, private router: Router) {}
 
   ngOnInit(): void {
     this.currentDate = this.formatDate(new Date());
+    this.loadUserProfile();
   }
 
   formatDate(date: Date): string {
-    const day = date.getDate();
-    const month = date.getMonth() + 1;
+    const day = date.getDate().toString().padStart(2, '0');
+    const month = (date.getMonth() + 1).toString().padStart(2, '0');
     const year = date.getFullYear();
-
-    return `${day < 10 ? '0' + day : day}/${month < 10 ? '0' + month : month}/${year}`;
+    return `${day}/${month}/${year}`;
   }
 
-  getInitials(name: string): string {
-    return name.split(' ').map((part) => part.charAt(0).toUpperCase()).join('');
-  }
+  loadUserProfile(): void {
+    this.service.Profile({}).subscribe(
+      (response: TraktoProfile) => {
+        if (response.logo && response.logo.url && response.logo.url.low) {
+          this.profileImageUrl = response.logo.url.low.secure_url;
+        } else {
+          this.userName = response.firstname;
+        }
+      },
+      (error: any) => {
+        console.log('Error loading user profile:', error);
+      }
+      );
+    }
 
-  hasProfileImage(): boolean {
-    return this.profileImageUrl !== null;
+    getInitials(name: string): string {
+      return name
+      .split(' ')
+      .map((part) => part.charAt(0).toUpperCase())
+      .join('');
+    }
+
+    hasProfileImage(): boolean {
+      return !!this.profileImageUrl;
+    }
+
+    navigateToHome(): void {
+      this.router.navigate(['/']);
+    }
+
+    userLogout(): void {
+      this.service.ClearCookie();
+      this.router.navigate(['/login']);
+    }
   }
-}

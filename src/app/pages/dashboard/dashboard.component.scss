@@ -1,0 +1,23 @@
+.container{
+  background: #EFF2F9;
+
+  .material-cards{
+    display: flex;
+    gap: 2rem;
+  }
+
+  .arrow{
+    background: none;
+    border: none;
+    color: #7183A6;
+    cursor: pointer;
+
+    img{
+      width: 12px;
+    }
+  }
+
+  app-card{
+    width: 310px;
+  }
+}

@@ -1,0 +1,20 @@
+<app-header theme="light"></app-header>
+<div class="content-view">
+  <app-frame
+  frameType="view"
+  title="Material didático"
+  subtitle="Acesse suas últimas apresentações de aula."
+  >
+  <ng-container *ngFor="let card of cards">
+    <app-card
+      *ngIf="!isLoading"
+      [imageSrc]="card.imageSrc"
+      [imageAlt]="card.subtitle"
+      [slideFix]="card.pages"
+      [materialTitle]="card.subtitle"
+      (click)="redirectToEditor(card.id)"
+    />
+    <app-skeleton *ngIf="isLoading" />
+  </ng-container>
+</app-frame>
+</div>

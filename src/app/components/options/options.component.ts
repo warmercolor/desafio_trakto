@@ -12,6 +12,7 @@ export class OptionsComponent implements OnInit{
   @Input() imageSrc: string = '';
   @Input() imageAlt: string = '';
   @Input() imageBorder: string = '#000'
+  @Input() cursor?: string = 'pointer';
 
   isExpanded: boolean = false;
 

@@ -14,6 +14,7 @@
   [lineWidth]="'100px'"
   [imageSrc]="'../../../assets/images/quiz.svg'"
   [imageAlt]="'Quiz Icon'"
+  cursor="not-allowed"
   />
   <app-options
   [title]="'Desenho'"
@@ -21,8 +22,10 @@
   [lineWidth]="'200px'"
   [imageSrc]="'../../../assets/images/draw.svg'"
   [imageAlt]="'Desenho Icon'"
+  cursor="not-allowed"
   />
   <app-options
+  (click)="navigateToExternalPage('https://www.youtube.com/c/Trakto')"
   [title]="'Youtube'"
   [lineColor]="'#FF0000'"
   [lineWidth]="'170px'"

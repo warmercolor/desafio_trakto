@@ -10,10 +10,10 @@ import { SharedModule } from './../../shared/shared.module';
 @NgModule({
   declarations: [
     HomepageComponent,
-    OptionsComponent,
+    OptionsComponent
   ],
   imports: [
-    SharedModule,
+  SharedModule,
     CommonModule,
     RouterModule.forChild(HomepageRoutes)
   ]
