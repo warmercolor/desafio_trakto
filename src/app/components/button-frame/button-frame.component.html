@@ -8,6 +8,7 @@
   (mouseover)="hovering = true"
   (mouseout)="hovering = false"
   [ngClass]="{'hovering': hovering}"
+  (click)="buttonNavigate()"
 >
 <img *ngIf="icon" [src]="icon">
   {{ titleBtn }}

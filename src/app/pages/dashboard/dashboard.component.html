@@ -11,6 +11,7 @@
   bgColor="transparent"
   hoverColor="#4743FF"
   titleBtn="Ver todo conteúdo"
+  buttonUrl="/view"
   >
     <ng-container *ngFor="let card of cards">
       <app-card
@@ -33,6 +34,7 @@
   hoverColor="#FF0100"
   titleBtn="Abrir no Youtube"
   icon="../../../assets/images/youtube_icon.svg"
+  buttonUrl="https://www.youtube.com/c/Trakto"
   >
     <ng-container *ngFor="let video of videos">
       <app-card
@@ -47,4 +49,3 @@
     </ng-container>
   </app-frame>
 </div>
-

@@ -1,5 +1,6 @@
 import { Component, ElementRef, OnInit, ViewChild } from '@angular/core';
 import { ServiceTrakto } from '../../resources/service/api.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-dashboard',
@@ -13,7 +14,7 @@ export class DashboardComponent implements OnInit {
   cards=[
     {
       imageSrc: '',
-      subtitle: ''
+      subtitle: '',
     },
   ]
 
@@ -50,7 +51,7 @@ export class DashboardComponent implements OnInit {
     },
   ]
 
-  constructor(private service: ServiceTrakto) { }
+  constructor(private service: ServiceTrakto, private router: Router) { }
 
   ngOnInit(): void {
     this.service.SlideAll({}).subscribe(

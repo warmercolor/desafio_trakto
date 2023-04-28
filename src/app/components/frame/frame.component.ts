@@ -9,10 +9,11 @@ export class FrameComponent implements OnInit {
   @Input() dateRange = '';
   @Input() title = '';
   @Input() subtitle = '';
+  @Input() titleBtn = '';
   @Input() textColor = '';
   @Input() bgColor = '';
   @Input() hoverColor = '';
-  @Input() titleBtn = '';
+  @Input() buttonUrl: string = '';
   @Input() icon?: string;
   @Input() frameType: 'default' | 'view' = 'default';
   @ViewChild('cardWrapper', { static: true }) cardWrapper!: ElementRef;
