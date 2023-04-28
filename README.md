@@ -1,6 +1,5 @@
-<img src="./src/assets/images/logo_trakto_dark.svg"/>
+# <img align="center" src="./src/assets/images/logo_trakto_dark.svg"/>
 
-# Trakto Edu
 <p>A aplicação foi criada usando o framework Angular na versão 15, focando na criação de uma experiência de usuário fluída e intuitiva para um professor que deseja elaborar apresentações na plataforma Trakto. A interação com a plataforma Trakto é realizada através da sua API, que foi integralmente consumida para as operações necessárias.
 
 A aplicação é composta por três partes principais:
