@@ -1,7 +1,7 @@
 <div class="container">
   <app-header theme="light"></app-header>
 
-  <app-banner></app-banner>
+  <app-banner/>
 
   <app-frame
   dateRange="Semana 06/02 até 28/02"
@@ -19,8 +19,8 @@
         [imageAlt]="card.subtitle"
         slideFix="1 Slide"
         [materialTitle]="card.subtitle"
-      ></app-card>
-      <app-skeleton *ngIf="isLoading"></app-skeleton>
+      />
+      <app-skeleton *ngIf="isLoading"/>
     </ng-container>
   </app-frame>
 
@@ -42,8 +42,8 @@
         slideFix="Youtube"
         [materialTitle]="video.subtitle"
         [contentType]="'video'"
-      ></app-card>
-      <app-skeleton *ngIf="isLoading"></app-skeleton>
+      />
+      <app-skeleton *ngIf="isLoading" />
     </ng-container>
   </app-frame>
 </div>

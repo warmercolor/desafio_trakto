@@ -5,6 +5,10 @@ import { CookieModule } from 'ngx-cookie';
 import { ServiceTrakto } from '../resources/service/api.service';
 import { MatMenuModule } from '@angular/material/menu';
 import { MAT_DIALOG_DEFAULT_OPTIONS, MatDialogModule } from '@angular/material/dialog';
+import { FrameComponent } from '../components/frame/frame.component';
+import { ButtonFrameComponent } from '../components/button-frame/button-frame.component';
+import { SkeletonComponent } from '../components/skeleton/skeleton.component';
+import { CardComponent } from '../components/card/card.component';
 
 @NgModule({
   providers: [
@@ -14,6 +18,10 @@ import { MAT_DIALOG_DEFAULT_OPTIONS, MatDialogModule } from '@angular/material/d
   ],
   declarations: [
     HeaderComponent,
+    FrameComponent,
+    ButtonFrameComponent,
+    SkeletonComponent,
+    CardComponent
   ],
   imports: [
     CommonModule,
@@ -21,7 +29,11 @@ import { MAT_DIALOG_DEFAULT_OPTIONS, MatDialogModule } from '@angular/material/d
     MatDialogModule
   ],
   exports: [
-    HeaderComponent
+    HeaderComponent,
+    FrameComponent,
+    ButtonFrameComponent,
+    SkeletonComponent,
+    CardComponent
   ],
   schemas: [CUSTOM_ELEMENTS_SCHEMA],
 })

@@ -14,6 +14,7 @@ export class FrameComponent implements OnInit {
   @Input() hoverColor = '';
   @Input() titleBtn = '';
   @Input() icon?: string;
+  @Input() frameType: 'default' | 'view' = 'default';
   @ViewChild('cardWrapper', { static: true }) cardWrapper!: ElementRef;
 
   public readonly scrollOffset = 310;

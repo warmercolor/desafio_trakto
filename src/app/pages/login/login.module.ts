@@ -9,7 +9,6 @@ import { HttpClientModule } from '@angular/common/http';
 import { SharedModule } from './../../shared/shared.module';
 
 
-
 @NgModule({
   declarations: [
     LoginComponent

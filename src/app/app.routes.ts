@@ -17,6 +17,10 @@ export const AppRoutes: Routes = [
     loadChildren: () => import('./pages/login/login.module').then(m => m.LoginModule)
   },
   {
+    path: 'view',
+    loadChildren: () => import('./pages/view/view.module').then(m => m.ViewModule)
+  },
+  {
     path: '**',
     redirectTo: ''
   }

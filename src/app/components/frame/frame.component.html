@@ -1,5 +1,5 @@
-<div class="container">
-  <div class="arrows">
+<div class="container" [class.container-alternative]="frameType === 'view'">
+  <div *ngIf="frameType !== 'view'" class="arrows">
     <span class="date-range">
       {{ dateRange }}
     </span>
@@ -17,9 +17,9 @@
       [icon]="icon"
     ></app-button>
   </div>
-  <h2 class="title"> {{ title }} </h2>
-  <p class="subtitle"> {{ subtitle }} </p>
-  <div class="card-wrapper" #cardWrapper>
-  <ng-content></ng-content>
+  <h2 class="title" [class.title-alternative]="frameType === 'view'"> {{ title }} </h2>
+  <p class="subtitle" [class.subtitle-alternative]="frameType === 'view'"> {{ subtitle }} </p>
+  <div class="card-wrapper" #cardWrapper [class.card-wrapper-alternative]="frameType === 'view'">
+    <ng-content></ng-content>
   </div>
 </div>
