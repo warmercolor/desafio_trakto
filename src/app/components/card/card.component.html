@@ -1,0 +1,8 @@
+<div class="content-card">
+  <div class="card">
+    <img *ngIf="contentType === 'image'" [src]="imageSrc" [alt]="imageAlt">
+    <iframe *ngIf="contentType === 'video'" [src]="safeVideoUrl" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
+    <div class="slide-count"> {{ slideFix }}</div>
+  </div>
+  <h3 class="slide-title"> {{ materialTitle }} </h3>
+</div>

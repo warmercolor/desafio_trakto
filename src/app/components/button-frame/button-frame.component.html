@@ -1,0 +1,15 @@
+<button
+  class="btn"
+  [ngStyle]="{
+    'color': hovering ? '#FFFFFF' : textColor,
+    'background-color': hovering ? hoverColor : bgColor,
+    'border-color':  textColor
+  }"
+  (mouseover)="hovering = true"
+  (mouseout)="hovering = false"
+  [ngClass]="{'hovering': hovering}"
+  (click)="buttonNavigate()"
+>
+<img *ngIf="icon" [src]="icon">
+  {{ titleBtn }}
+</button>

@@ -1,0 +1,35 @@
+<header class="header" [ngClass]="{'header-light': theme === 'light'}">
+  <img class="header-logo" [attr.src]="theme === 'light' ? '../../../assets/images/logo_trakto_light.svg' : '../../../assets/images/logo_trakto_dark.svg'" alt="Trackto Logo" />
+  <div class="header-container-switch">
+    <button *ngIf="theme === 'light'" class="header-switch-env" (click)="navigateToHome()">
+      <img class="header-icon-environment" src="../../../assets/images/door.svg"/>
+      Trocar ambiente
+    </button>
+  </div>
+  <div class="header-info">
+    <img [attr.src]="theme === 'light' ? '../../../assets/images/calendar_light.svg' : '../../../assets/images/calendar.svg'" alt="Calendar Icon" />
+    <span class="header-date">{{ currentDate }}</span>
+    <span class="header-separator"></span>
+    <img [attr.src]="theme === 'light' ? '../../../assets/images/notification_light.svg ': '../../../assets/images/notification.svg'" alt="Notification Icon" [matMenuTriggerFor]="notify" class="notify"/>
+    <mat-menu #notify="matMenu">
+      <button mat-menu-item (click)="userLogout()" >Não há nada de novo por aqui</button>
+      <button mat-menu-item (click)="userLogout()"></button>
+      <button mat-menu-item (click)="userLogout()"></button>
+      <button mat-menu-item (click)="userLogout()"></button>
+      <button mat-menu-item (click)="userLogout()"></button>
+    </mat-menu>
+    <span class="header-separator"></span>
+    <ng-container *ngIf="hasProfileImage(); else noProfileImage">
+      <img class="header-profile-image" [src]="profileImageUrl" alt="Profile Image" />
+    </ng-container>
+    <ng-template #noProfileImage>
+      <div class="header-profile-image header-profile-initials">{{ getInitials(userName) }}</div>
+    </ng-template>
+    <img [attr.src]="theme === 'light' ? '../../../assets/images/arrow_light.svg' : '../../../assets/images/arrow.svg'" alt="Arrow Icon" class="arrow-profile" [matMenuTriggerFor]="menu"/>
+    <mat-menu #menu="matMenu">
+      <button mat-menu-item (click)="userLogout()">Encerrar sessão</button>
+    </mat-menu>
+  </div>
+</header>
+
+
