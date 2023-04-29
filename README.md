@@ -84,6 +84,10 @@ $ http://localhost:4200/
 
 ```
 
+Para conseguir acessar todas as rotas, incluindo login, você precisa ter uma conta na Trakto, segue o link:
+
+https://www.trakto.io
+
 ## 👩🏻 Desenvolvedora
 <p>Thaisa Alice</p>
 <img width="150px" border-radius heigth="150px" src="./src/assets/images/alice.jpg"/>
