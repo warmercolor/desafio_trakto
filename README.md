@@ -84,7 +84,7 @@ $ http://localhost:4200/
 
 ```
 
-Para conseguir acessar todas as rotas, incluindo login, você precisa ter uma conta na Trakto, segue o link:
+Para conseguir acessar todas as rotas, e logar, você precisa ter uma conta na Trakto, segue o link:
 
 https://www.trakto.io
 
